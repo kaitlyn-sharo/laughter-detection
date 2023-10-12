@@ -4,7 +4,6 @@ from tqdm import tqdm
 from functools import partial
 #from keras.preprocessing.sequence import pad_sequences as keras_pad_seqs
 from collections import defaultdict
-import text_utils
 from sklearn.utils import shuffle
 import copy, random
 import six
@@ -336,13 +335,6 @@ def pad_sequences_with_labels(seq_label_tuples, sequence_pad_value=0,
         if label_pad_value is not None:
             # label_pad_value should be the string value, not the integer in the voc
             labels = pad_sequences(labels, label_pad_value, max_len=max_label_len)
-
-        # Convert vocab to integers after padding
-        if output_vocab is not None:
-            labels = [text_utils.sequence_to_indices(l, output_vocab) for l in labels]
-
-        if one_hot_labels:
-            labels = [text_utils.np_onehot(l, depth=len(output_vocab)) for l in labels]
 
     if expand_channel_dim:
         sequences = np.expand_dims(sequences, 1)

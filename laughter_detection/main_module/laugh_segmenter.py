@@ -1,14 +1,11 @@
 import numpy as np
 import scipy.signal as signal
 import scipy
-import os
-import sys
 import librosa
-
-#import compute_features
+# import compute_features
 
 def frame_to_time(frame_index):
-    return(frame/100.)
+    return(frame_index/100.)
 
 def seconds_to_frames(s, fps=100):
     return(int(s*fps))

@@ -16,6 +16,15 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+    "librosa==0.8.1",
+    "numpy==1.23.5",
+    "torch==2.1.0",
+    "tgt==1.4.4",
+    "pyloudnorm==0.1.0",
+    "praatio==3.8.0",
+    "tensorboardX==1.9"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/jrgillick/laughter-detection"
