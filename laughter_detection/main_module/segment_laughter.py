@@ -4,7 +4,7 @@
 import os, sys, pickle, time, librosa, argparse, torch, numpy as np, pandas as pd, scipy
 from tqdm import tqdm
 import tgt
-sys.path.append('./utils/')
+sys.path.append('../utils/')
 import laugh_segmenter
 import models, configs
 import dataset_utils, audio_utils, data_loaders, torch_utils
@@ -17,7 +17,7 @@ sample_rate = 8000
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--model_path', type=str, default='checkpoints/in_use/resnet_with_augmentation')
+parser.add_argument('--model_path', type=str, default='../checkpoints/in_use/resnet_with_augmentation')
 parser.add_argument('--config', type=str, default='resnet_with_augmentation')
 parser.add_argument('--threshold', type=str, default='0.5')
 parser.add_argument('--min_length', type=str, default='0.2')

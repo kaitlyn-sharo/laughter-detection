@@ -1,5 +1,5 @@
 import sys, numpy as np
-sys.path.append('./utils')
+sys.path.append('../utils')
 import models, audio_utils
 from functools import partial
 
