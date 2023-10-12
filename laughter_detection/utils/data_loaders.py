@@ -1,8 +1,5 @@
 import torch, numpy as np, librosa
-from torch.utils import data
-import dataset_utils, audio_utils
-from joblib import Parallel, delayed
-import pandas as pd
+from .audio_utils import subsample_time
 
 class AudioDataset(torch.utils.data.Dataset):
     """ A class to load audio files and, optionally, labels.
@@ -169,7 +166,7 @@ class SwitchBoardLaughterDataset(torch.utils.data.Dataset):
         
         if self.subsample:
             audio_file_length = librosa.core.samples_to_time(len(audio_file),sr=self.sr)
-            offset, duration = audio_utils.subsample_time(self.df.offset[index], self.df.duration[index], audio_file_length=audio_file_length,
+            offset, duration = subsample_time(self.df.offset[index], self.df.duration[index], audio_file_length=audio_file_length,
                 subsample_length=1.0, padding_length=0.5)
         else:
             offset = self.df.subsampled_offset[index]

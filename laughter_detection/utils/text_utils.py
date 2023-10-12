@@ -1,4 +1,3 @@
-import numpy as np, csv
 from collections import defaultdict
 
 
@@ -11,6 +10,9 @@ START_SYMBOL = '###_START_###'  #  -> 1
 END_SYMBOL = '###_END_###'  #  -> 2
 OOV_SYMBOL = '###_OOV_###'  #  -> 3
 
+def readable_outputs(s, x):
+    '''dummy function to fix runtime errors'''
+    return s
 
 def make_vocab(filepaths=None, token_fn=None, token_lists=None,
     include_start_symbol=False, include_end_symbol=False,

@@ -3,7 +3,7 @@ import torch
 from torch import nn
 from torch.autograd import Variable
 from tensorboardX import SummaryWriter
-import text_utils
+from .text_utils import readable_outputs
 
 # Import different progress bar depending on environment
 # https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook
@@ -413,7 +413,7 @@ class Predictor:
 
             if labs is not None:
                 # Convert to readable labels with reverse vocab
-                labs = [text_utils.readable_outputs(
+                labs = [readable_outputs(
                     s, self.reverse_vocab) for s in np.array(labs)]
 
             # Run model forward
@@ -424,7 +424,7 @@ class Predictor:
             # Remove batch dimension, get arxmax from one hot, and convert to numpy
             output_seqs = np.argmax(output.cpu().numpy(), axis=-1).T
 
-            readable_preds = [text_utils.readable_outputs(
+            readable_preds = [readable_outputs(
                 s, self.reverse_vocab) for s in output_seqs]
 
             to_return.append( (readable_preds, labs) )
@@ -473,7 +473,7 @@ class OneFileDatasetPredictor:
 
             if labs is not None:
                 # Convert to readable labels with reverse vocab
-                labs = [text_utils.readable_outputs(
+                labs = [readable_outputs(
                     s, self.reverse_vocab) for s in np.array(labs)]
 
             # Run model forward
@@ -484,7 +484,7 @@ class OneFileDatasetPredictor:
             # Remove batch dimension, get arxmax from one hot, and convert to numpy
             output_seqs = np.argmax(output.cpu().numpy(), axis=-1).T
 
-            readable_preds = [text_utils.readable_outputs(
+            readable_preds = [readable_outputs(
                 s, self.reverse_vocab) for s in output_seqs]
 
             to_return.append( (readable_preds, labs) )
