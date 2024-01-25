@@ -17,7 +17,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "librosa==0.8.1",
+    "librosa==0.10.1",
     "numpy==1.23.5",
     "torch==2.1.0",
     "tgt==1.4.4",
