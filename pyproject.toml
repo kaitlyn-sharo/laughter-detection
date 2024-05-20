@@ -19,7 +19,7 @@ classifiers = [
 dependencies = [
     "librosa==0.9.1",
     "numpy==1.23.5",
-    "torch==2.1.0",
+    "torch>=2.1.0",
     "tgt==1.4.4",
     "pyloudnorm==0.1.0",
     "praatio==3.8.0",
